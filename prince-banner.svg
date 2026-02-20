@@ -7,8 +7,8 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="crownGlow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+    <filter id="crownGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -43,31 +43,32 @@
       100% { opacity: 1; transform: translateY(0px) scale(1); }
     }
 
-    /* Crown swings in like it's hung from a pin — pivot is the pin at top-right */
+    /* Crown swings in like hung from a pin — pivot is the pin point */
     .crown-group {
       filter: url(#crownGlow);
       opacity: 0;
-      transform-origin: 144px 12px;
+      transform-origin: 170px 14px;
       animation: crownSwing 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       animation-delay: 1.0s;
     }
 
     @keyframes crownSwing {
-      0%   { opacity: 0; transform: rotate(-50deg); }
+      0%   { opacity: 0; transform: rotate(-55deg); }
       40%  { opacity: 1; transform: rotate(10deg);  }
       60%  { opacity: 1; transform: rotate(-7deg);  }
-      78%  { opacity: 1; transform: rotate(4deg);   }
-      90%  { opacity: 1; transform: rotate(-2deg);  }
-      100% { opacity: 1; transform: rotate(-12deg); }
+      78%  { opacity: 1; transform: rotate(3deg);   }
+      90%  { opacity: 1; transform: rotate(-1deg);  }
+      100% { opacity: 1; transform: rotate(-13deg); }
     }
 
     .underline-bar {
       opacity: 0;
-      animation: fadeSlide 0.5s ease forwards;
+      transform-origin: 120px 168px;
+      animation: barGrow 0.5s ease forwards;
       animation-delay: 1.7s;
     }
 
-    @keyframes fadeSlide {
+    @keyframes barGrow {
       0%   { opacity: 0; transform: scaleX(0); }
       100% { opacity: 1; transform: scaleX(1); }
     }
@@ -76,68 +77,76 @@
   <!-- Background -->
   <rect width="600" height="200" fill="#0D1117" rx="12"/>
 
-  <!-- Subtle grid dot texture -->
+  <!-- Subtle grid lines -->
   <line x1="0" y1="100" x2="600" y2="100" stroke="#161d2b" stroke-width="1"/>
   <line x1="300" y1="0" x2="300" y2="200" stroke="#161d2b" stroke-width="1"/>
 
-  <!-- PRINCE letters -->
-  <text id="P" x="96"  y="155" class="letter">P</text>
-  <text id="R" x="152" y="155" class="letter">R</text>
-  <text id="I" x="214" y="155" class="letter">I</text>
-  <text id="N" x="242" y="155" class="letter">N</text>
-  <text id="C" x="306" y="155" class="letter">C</text>
-  <text id="E" x="370" y="155" class="letter">E</text>
+  <!--
+    Letters centered in 600px wide canvas.
+    Total text block = 6 chars × 50px + 5 gaps × 12px = 360px
+    Start X = (600 - 360) / 2 = 120px
+    Each letter step = 50 + 12 = 62px
+    P=120, R=182, I=244, N=306, C=368, E=430
+  -->
+  <text id="P" x="120" y="155" class="letter">P</text>
+  <text id="R" x="182" y="155" class="letter">R</text>
+  <text id="I" x="244" y="155" class="letter">I</text>
+  <text id="N" x="306" y="155" class="letter">N</text>
+  <text id="C" x="368" y="155" class="letter">C</text>
+  <text id="E" x="430" y="155" class="letter">E</text>
 
-  <!-- Crown group — pin at (144, 12) which is top-right of crown body -->
-  <!-- Crown sits roughly over the P letter (x 96-150) -->
-  <!-- At rest it hangs at -12deg so it tilts leftward naturally -->
+  <!--
+    Crown hangs over P (x: 120–170, center: 145).
+    Pin is at top-right of crown (x=170, y=14).
+    At rest, -13deg tilt swings crown leftward over P.
+    Crown body: leftmost point ~72, rightmost ~170 (width=98px).
+  -->
   <g class="crown-group">
-    <!-- Hanging pin dot -->
-    <circle cx="144" cy="12" r="4.5" fill="#FFD700" stroke="#b8860b" stroke-width="1.5"/>
-    <!-- String from pin down to crown top-right corner -->
-    <line x1="144" y1="16" x2="144" y2="30" stroke="#FFD700" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+    <!-- Pin dot at pivot -->
+    <circle cx="170" cy="14" r="4.5" fill="#FFD700" stroke="#b8860b" stroke-width="1.5"/>
+    <!-- String from pin to crown body -->
+    <line x1="170" y1="18" x2="170" y2="32" stroke="#FFD700" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
 
-    <!-- Crown body -->
+    <!-- Crown body: 3 spikes, base at y=32–80 -->
     <polygon
-      points="72,30  88,58  108,38  128,58  144,30  144,78  72,78"
+      points="72,32  90,62  110,40  130,62  170,32  170,80  72,80"
       fill="#FFD700"
       filter="url(#softShadow)"
     />
-    <!-- Bottom band shading -->
+    <!-- Bottom shading band -->
     <polygon
-      points="72,67  144,67  144,78  72,78"
+      points="72,69  170,69  170,80  72,80"
       fill="#b8860b"
       opacity="0.5"
     />
-    <!-- Highlight on left face -->
+    <!-- Left face highlight -->
     <polygon
-      points="72,30  88,58  80,58  72,38"
+      points="72,32  90,62  82,62  72,44"
       fill="#FFE55C"
-      opacity="0.45"
+      opacity="0.4"
     />
 
-    <!-- Center spike jewel — ruby red -->
-    <circle cx="108" cy="26" r="7.5" fill="#FF2244"/>
-    <circle cx="108" cy="26" r="4"   fill="#FF99AA" opacity="0.75"/>
+    <!-- Center top jewel — ruby -->
+    <circle cx="110" cy="28" r="8"   fill="#FF2244"/>
+    <circle cx="110" cy="28" r="4.5" fill="#FF99AA" opacity="0.75"/>
 
     <!-- Left spike jewel — cyan -->
-    <circle cx="72"  cy="26" r="5.5" fill="#00D9FF"/>
-    <circle cx="72"  cy="26" r="2.5" fill="#ccf7ff" opacity="0.85"/>
+    <circle cx="72"  cy="28" r="6"   fill="#00D9FF"/>
+    <circle cx="72"  cy="28" r="3"   fill="#ccf7ff" opacity="0.85"/>
 
-    <!-- Right spike jewel — cyan -->
-    <circle cx="144" cy="26" r="5.5" fill="#00D9FF"/>
-    <circle cx="144" cy="26" r="2.5" fill="#ccf7ff" opacity="0.85"/>
+    <!-- Right spike jewel — cyan (at pin base) -->
+    <circle cx="170" cy="28" r="6"   fill="#00D9FF"/>
+    <circle cx="170" cy="28" r="3"   fill="#ccf7ff" opacity="0.85"/>
   </g>
 
-  <!-- Underline accent bar — centered under PRINCE text -->
+  <!-- Underline accent bar -->
   <rect
     class="underline-bar"
-    x="96" y="165"
-    width="328" height="3"
+    x="120" y="168"
+    width="360" height="3"
     rx="2"
     fill="#00D9FF"
     opacity="0.65"
-    transform-origin="96px 165px"
   />
 
 </svg>
