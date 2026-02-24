@@ -31,7 +31,7 @@ I like going deep. Whether it's implementing ML algorithms from first principles
 
 - **Currently:** Building ML systems from scratch — no black-box libraries
 - **Focus:** RAG architectures, vector search, and backend APIs
-- **Philosophy:** If you can't implement it from scratch, you don't really know it
+
 
 ---
 
