@@ -36,6 +36,15 @@ I like going deep. Whether it's implementing ML algorithms from first principles
 ---
 
 ## Featured Projects
+### [`SMS Organizer`](https://github.com/Prince-Khatri/SMS-Organiser) — Intelligent SMS Manager  
+> ML-powered Android app that classifies SMS into OTP, Transactions, Spam, etc. using an on-device ONNX model  
+
+- Android app built with Java, Room DB & RecyclerView for fast offline usage  
+- Privacy-first: all processing happens on-device (no data leaves the phone)  
+- Powered by a custom NLP pipeline ([Model Repo](https://github.com/Prince-Khatri/SMS-Organiser-Model))  
+- Model trained using Scikit-Learn and exported to ONNX for mobile inference  
+
+`Java` `Android` `RoomDB` `RecyclerView` `Python` `Scikit-Learn` `ONNX`
 
 ### [`ML-Algos`](https://github.com/Prince-Khatri/ML_algos) — Machine Learning from First Principles
 > *Implementing core ML algorithms using only NumPy & Pandas — zero Scikit-Learn.*
@@ -64,29 +73,19 @@ No sklearn. Pure probabilistic logic — tokenization, likelihood estimation, an
 
 ---
 
-### [`Glass Management System`](https://github.com/Prince-Khatri/Glass_Management) — Desktop Application
-> *Java Swing application for inventory and business management.*
-
-Full-featured desktop GUI application with CRUD operations, inventory tracking, and report generation.
-
-`Java` `Java Swing` `MySQL`
-
----
-
 ## 🛠️ Tech Stack
-
 <div align="center">
 
 | Domain | Technologies |
 |--------|-------------|
 | **Languages** | Python · C++ · Java · SQL |
 | **ML / AI** | NumPy · Pandas · Scikit-Learn · LangChain · Google Generative AI |
-| **Vector Search** | FAISS |
 | **Backend** | Flask · REST APIs · MySQL |
-| **Tools** | Git · Linux · Jupyter |
+| **Vector Search** | FAISS |
+| **Mobile Dev** | Android (Java) |
+| **Tools & Platforms** | Git · Linux · Jupyter Notebook |
 
 </div>
-
 ---
 
 ## 📊 GitHub Stats
