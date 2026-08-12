@@ -2,11 +2,11 @@
   
 ![Banner](prince-banner.svg)
 
-### `Backend Engineer` · `ML Systems` · `RAG Architect`
+### `Backend Engineer` · `ML Systems` · `Distributed Systems`
 
-*Building backend softwares & raw algorithms.*
+*Building production backends and ML systems that ship.*
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=00D9FF&center=true&vCenter=true&width=500&lines=ML+from+scratch+%E2%80%94+no+shortcuts;RAG+pipelines+that+actually+work;Scalable+backends+%2B+clean+APIs;Student+%40+RIT+Bengaluru)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=00D9FF&center=true&vCenter=true&width=520&lines=Spring+Boot+microservices+with+AWS;ML+pipelines+from+training+to+serving;Redis+%C2%B7+RabbitMQ+%C2%B7+PostgreSQL;Student+%40+RIT+Bengaluru)](https://git.io/typing-svg)
 
 </div>
 
@@ -23,86 +23,100 @@
 
 ---
 
-## About
+> Information Science Engineering student at **Ramaiah Institute of Technology, Bengaluru** — focused on scalable backend systems and applied machine learning.
 
-> Information Science Engineering student at **Ramaiah Institute of Technology, Bengaluru** — building at the intersection of scalable backend systems and applied machine learning.
+I work on systems where correctness and structure matter: service boundaries, data flow, and models that are trained, tracked, and served — not just notebook demos.
 
-I like going deep. Whether it's implementing ML algorithms from first principles or designing RAG pipelines that process thousands of documents, I prefer understanding the machinery under the hood.
-
-- **Currently:** Building ML systems from scratch — no black-box libraries
-- **Focus:** RAG architectures, vector search, and backend APIs
-
+- **Currently:** Designing Spring Boot microservices and end-to-end ML pipelines
+- **Focus:** Distributed backends, event-driven design, and ML model serving
 
 ---
 
 ## Featured Projects
-### [`SMS Organizer`](https://github.com/Prince-Khatri/SMS-Organiser) — Intelligent SMS Manager  
-> ML-powered Android app that classifies SMS into OTP, Transactions, Spam, etc. using an on-device ONNX model  
 
-- Android app built with Java, Room DB & RecyclerView for fast offline usage  
-- Privacy-first: all processing happens on-device (no data leaves the phone)  
-- Powered by a custom NLP pipeline ([Model Repo](https://github.com/Prince-Khatri/SMS-Organiser-Model))  
-- Model trained using Scikit-Learn and exported to ONNX for mobile inference  
+### [`SeatNova`](https://github.com/Prince-Khatri/SeatNova) — Movie Ticket Booking Platform
+> Microservices booking system with distributed seat locking, async payments, and a secured API gateway.
 
-`Java` `Android` `RoomDB` `RecyclerView` `Python` `Scikit-Learn` `ONNX`
+- Seven Spring Boot services for movies, theatres, bookings, and payments — routed through Eureka and a centralized config server
+- Seat holds enforced in Redis with Lua scripts to prevent double-booking under concurrency
+- Booking and payment state kept in sync over RabbitMQ; Razorpay webhooks confirm payments asynchronously
+- API Gateway validates JWTs from Keycloak (OAuth 2.0 + PKCE) before forwarding traffic
+- Each domain service owns its own PostgreSQL schema
 
-### [`ML-Algos`](https://github.com/Prince-Khatri/ML_algos) — Machine Learning from First Principles
-> *Implementing core ML algorithms using only NumPy & Pandas — zero Scikit-Learn.*
-
-Hand-coded implementations of regression, classification, and clustering algorithms. Built to understand the math, not just call `.fit()`.
-
-`Python` `NumPy` `Pandas` `Linear Algebra`
+`Java` `Spring Boot` `Spring Cloud` `Eureka` `Redis` `RabbitMQ` `PostgreSQL` `Razorpay` `Keycloak`
 
 ---
 
-### [`RAG PDF Chatbot`](https://github.com/Prince-Khatri/Chat-with-multiple-pdf) — Multi-Document Intelligence
-> *High-concurrency document processing powered by Gemini API + FAISS vector search.*
+### [`CafeOps`](https://github.com/mrsahiljaiswal/CafeOPS) — POS with Demand Forecasting
+> Full-stack point-of-sale platform that predicts meal demand and keeps inventory aligned with real orders.
 
-Upload multiple PDFs and query across all of them in natural language. Built on LangChain with semantic chunking and FAISS for sub-second retrieval.
+- Spring Boot REST API for orders, meals, inventory, and forecast endpoints; React + Vite frontend for POS and analytics
+- Orders deduct ingredients from center inventory using recipe mappings and unit conversion
+- Python ML service (LightGBM) forecasts demand; backend calls it over HTTP and surfaces model vs. actual metrics
+- Training and prediction pipelines with preprocessing artifacts; experiment tracking via MLflow
+- Docker Compose brings up PostgreSQL, backend, ML service, and frontend as one stack
 
-`Python` `LangChain` `Google Gemini` `FAISS` `Flask`
-
----
-
-### [`Naive Bayes Classifier`](https://github.com/Prince-Khatri/Naive-Bayes-Classifiers) — Gender Classification Engine
-> *From scratch Naive Bayes trained on 150,000+ name data points.*
-
-No sklearn. Pure probabilistic logic — tokenization, likelihood estimation, and Laplace smoothing all hand-coded. Achieved high accuracy across Indian and international name datasets.
-
-`Python` `Probability Theory` `NLP` `REST API`
+`Java` `Spring Boot` `PostgreSQL` `React` `LightGBM` `Flask` `MLflow` `Docker`
 
 ---
 
-## 🛠️ Tech Stack
+### [`Cartora`](https://github.com/Prince-Khatri/Cartora-E-Commerce-Platform) — E-Commerce Product Backend
+> Spring Boot product API with cloud object storage for catalog images.
+
+- REST endpoints for product create, update, delete, and listing with JPA persistence
+- Product images uploaded and removed through AWS S3 (AWS SDK v2)
+- Multipart image handling wired into the product lifecycle so catalog media stays consistent with DB state
+
+`Java` `Spring Boot` `Spring Data JPA` `AWS S3` `REST APIs`
+
+---
+
+### [`Next Word Predictor`](https://github.com/Prince-Khatri/Next-Word-Predictor) — LSTM Language Model
+> End-to-end next-word prediction: train an LSTM, track runs in MLflow, serve suggestions over a Flask API.
+
+- Modular pipeline for ingestion, tokenization, training, and inference — config-driven via YAML
+- LSTM with embedding and dropout, trained with early stopping; experiments logged in MLflow
+- Flask service returns next-token predictions for a notepad-style UI (Space for hint, Tab to accept)
+- Top-k sampling at inference for controlled, non-greedy completions
+
+`Python` `TensorFlow` `Keras` `LSTM` `MLflow` `Flask` `NumPy`
+
+---
+
+## Tech Stack
 <div align="center">
 
 | Domain | Technologies |
 |--------|-------------|
-| **Languages** | Python · C++ · Java · SQL |
-| **ML / AI** | NumPy · Pandas · Scikit-Learn · LangChain · Google Generative AI |
-| **Backend** | Flask · REST APIs · MySQL |
-| **Vector Search** | FAISS |
-| **Mobile Dev** | Android (Java) |
-| **Tools & Platforms** | Git · Linux · Jupyter Notebook |
+| **Languages** | Java · Python · SQL · C++ |
+| **Backend** | Spring Boot · Spring Cloud · REST APIs · Flask |
+| **Data & Messaging** | PostgreSQL · Redis · RabbitMQ · H2 |
+| **ML / AI** | TensorFlow · Keras · LightGBM · NumPy · Pandas · Scikit-Learn · MLflow |
+| **Cloud & Infra** | AWS S3 · Docker · Eureka · Keycloak |
+| **Frontend** | React · Vite |
+| **Tools** | Git · Linux · Maven · Jupyter |
 
 </div>
+
+
 ---
 
 ## 📊 GitHub Stats
 
 <div align="center">
   
-[![GitHub Streak](https://streak-stats.demolab.com?user=Prince-Khatri&theme=tokyonight&hide_border=true&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakLabel=00D9FF)](https://git.io/streak-stats)
-
+ [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Prince-Khatri&theme=tokyonight&hide_border=true&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakLabel=00D9FF)](https://git.io/streak-stats)
 </div>
 
 ---
 
-## 🧭 What I'm Working Toward
+
+## What I'm Working Toward
 
 ```
-[ ] Build a full end-to-end ML pipeline (data → training → serving)
-[ ] Explore distributed systems & ML at scale
+[x] End-to-end ML pipeline (data → training → serving)
+[ ] Harden distributed booking flows under real load
+[ ] Deeper work on systems design and ML at scale
 ```
 
 ---
