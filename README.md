@@ -1,6 +1,8 @@
 <div align="center">
-  
-![Banner](prince-banner.svg)
+
+![Banner](prince-banner.svg#gh-dark-mode-only)
+![Banner](prince-banner-light.svg#gh-light-mode-only)
+
 
 ### `Backend Engineer` · `ML Systems` · `Distributed Systems`
 
