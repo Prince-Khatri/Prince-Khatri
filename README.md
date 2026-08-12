@@ -102,42 +102,34 @@ I work on systems where correctness and structure matter: service boundaries, da
 ---
 ## 📊 GitHub Stats
 
-<div align="center">
+<table align="center">
+  <tr>
+    <td align="center">
+      <img
+        src="./profile/top-langs.svg"
+        width="400"
+        alt="Top Languages"
+      />
+    </td>
+    <td align="center">
+      <img
+        src="./profile/streak.svg"
+        width="400"
+        alt="GitHub Streak"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <img
+        src="https://raw.githubusercontent.com/Prince-Khatri/Prince-Khatri/output/github-contribution-grid-snake-dark.svg"
+        width="800"
+        alt="GitHub Contribution Snake"
+      />
+    </td>
+  </tr>
+</table>
 
-  <img
-    src="./profile/top-langs.svg"
-    height="180"
-    alt="Top Languages"
-  />
-
-  <img
-    src="./profile/streak.svg"
-    height="180"
-    alt="GitHub Streak"
-  />
-
-</div>
-
-<br>
-
-<div align="center">
-
-  <picture>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="https://raw.githubusercontent.com/Prince-Khatri/Prince-Khatri/output/github-contribution-grid-snake-dark.svg"
-    />
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="https://raw.githubusercontent.com/Prince-Khatri/Prince-Khatri/output/github-contribution-grid-snake.svg"
-    />
-    <img
-      alt="GitHub contribution snake"
-      src="https://raw.githubusercontent.com/Prince-Khatri/Prince-Khatri/output/github-contribution-grid-snake.svg"
-    />
-  </picture>
-
-</div>
 ---
 
 
