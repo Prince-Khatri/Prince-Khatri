@@ -49,6 +49,19 @@ I work on systems where correctness and structure matter: service boundaries, da
 
 ---
 
+### [`GitGPT`](https://github.com/Prince-Khatri/GitGPT) — Ask Questions About a GitHub Repo
+> Sign in with GitHub, index one repository snapshot, and get answers grounded in retrieved code — not a live crawl of the repo.
+
+- GitHub OAuth; the React app lists cached repos first, then pages GitHub. Listing does not embed anything
+- An async job snapshots the default branch by commit SHA, filters and chunks source, and stores embeddings in PostgreSQL with pgvector
+- Questions run only when the index is ready: keyword and path search run in parallel with vector search, scoped to that user, repo, and SHA
+- A few packed chunks go to Gemini; the answer streams over SSE, with citations taken from retrieval
+- GitHub tokens and each user’s Gemini key are AES-GCM encrypted at rest and decrypted only in memory
+
+`Java` `Spring Boot` `Spring Security` `React` `PostgreSQL` `pgvector` `Spring AI` `Gemini`
+
+---
+
 ### [`CafeOps`](https://github.com/mrsahiljaiswal/CafeOPS) — POS with Demand Forecasting
 > Full-stack point-of-sale platform that predicts meal demand and keeps inventory aligned with real orders.
 
@@ -59,17 +72,6 @@ I work on systems where correctness and structure matter: service boundaries, da
 - Docker Compose brings up PostgreSQL, backend, ML service, and frontend as one stack
 
 `Java` `Spring Boot` `PostgreSQL` `React` `LightGBM` `Flask` `MLflow` `Docker`
-
----
-
-### [`Cartora`](https://github.com/Prince-Khatri/Cartora-E-Commerce-Platform) — E-Commerce Product Backend
-> Spring Boot product API with cloud object storage for catalog images.
-
-- REST endpoints for product create, update, delete, and listing with JPA persistence
-- Product images uploaded and removed through AWS S3 (AWS SDK v2)
-- Multipart image handling wired into the product lifecycle so catalog media stays consistent with DB state
-
-`Java` `Spring Boot` `Spring Data JPA` `AWS S3` `REST APIs`
 
 ---
 
@@ -92,9 +94,9 @@ I work on systems where correctness and structure matter: service boundaries, da
 |--------|-------------|
 | **Languages** | Java · Python · SQL · C++ |
 | **Backend** | Spring Boot · Spring Cloud · REST APIs · Flask |
-| **Data & Messaging** | PostgreSQL · Redis · RabbitMQ · H2 |
-| **ML / AI** | TensorFlow · Keras · LightGBM · NumPy · Pandas · Scikit-Learn · MLflow |
-| **Cloud & Infra** | AWS S3 · Docker · Eureka · Keycloak |
+| **Data & Messaging** | PostgreSQL · pgvector · Redis · RabbitMQ · H2 |
+| **ML / AI** | Spring AI · Gemini · TensorFlow · Keras · LightGBM · NumPy · Pandas · Scikit-Learn · MLflow |
+| **Cloud & Infra** | Docker · Eureka · Keycloak |
 | **Frontend** | React · Vite |
 | **Tools** | Git · Linux · Maven · Jupyter |
 
@@ -139,7 +141,7 @@ I work on systems where correctness and structure matter: service boundaries, da
 
 ```
 [x] End-to-end ML pipeline (data → training → serving)
-[ ] Harden distributed booking flows under real load
+[x] Harden distributed booking flows under real load
 [ ] Deeper work on systems design and ML at scale
 ```
 
